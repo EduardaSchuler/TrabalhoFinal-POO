@@ -2,4 +2,4 @@
 ### 2023/2
 
 ### Projeto Desenvolvido: Plataforma de Musica
-#### desenvolvedoras: Larissa Silva de OliveiraMaria Eduarda Schüler
+#### desenvolvedoras: Larissa Oliveira da Silva e Maria Eduarda Schüler
