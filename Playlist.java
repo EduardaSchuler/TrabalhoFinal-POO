@@ -7,30 +7,25 @@ public class Playlist implements Reproduz {
 	private String titulo;
 
 	public Playlist(String titulo) {
+		this.titulo = titulo;
+		duracaoTotal = 0.0;
+		filaDeReproducao = new HashSet<Audio>();
 	}
 
-	public void adicionaAudio(Audio audio) {
+	public double getDuracaoTotal(){
+		for(Audio audio : filaDeReproducao){
+			duracaoTotal += audio.getDuracao();
+		}
+		return duracaoTotal;
 	}
 
-	/**
-	 * @see Reproduz#next()
-	 */
-	public boolean next() {
-		return false;
+	public String getTitulo(){
+		return titulo;
 	}
 
-	/**
-	 * @see Reproduz#pause()
-	 */
-	public boolean pause() {
-		return false;
-	}
-
-	/**
-	 * @see Reproduz#play()
-	 */
-	public boolean play() {
-		return false;
+	//implementação da interface
+	public void next() {
+		filaDeReproducao.iterator();
 	}
 
 }
