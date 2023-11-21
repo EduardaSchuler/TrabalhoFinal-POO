@@ -1,4 +1,4 @@
 public interface Reproduz {
 
-	public abstract void next();,
+	public abstract void next();
 }
