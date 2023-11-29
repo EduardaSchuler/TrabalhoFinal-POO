@@ -51,4 +51,9 @@ public class Playlist implements Reproduz {
 
 		return listaReproducao.get(randomIndex);
 	}
+
+	public void limparPlaylist() {
+		filaDeReproducao.clear();
+		duracaoTotal = 0.0;	}
+
 }
