@@ -43,30 +43,37 @@ public class Aplicacao extends JFrame {
         listaArtistas.add(artista3);
 
         Album album1 = new Album(artista1, "ALB001", "Love in the Darkness", "2022-01-01");
+
         Musica musica1 = new Musica("M001", "All of Me", 4.5, "Some lyrics...");
         Musica musica2 = new Musica("M002", "Ordinary People", 5.2, "Some lyrics...");
         Musica musica3 = new Musica("M003", "Save Room", 4.0, "Some lyrics...");
         album1.addMusica(musica1);
         album1.addMusica(musica2);
         album1.addMusica(musica3);
+
         artista1.lancaAlbum(album1);
 
         Album album2 = new Album(artista2, "ALB002", "Rolling in the Deep", "2022-02-01");
+
         Musica musica4 = new Musica("M004", "Rolling in the Deep", 3.8, "Some lyrics...");
         Musica musica5 = new Musica("M005", "Someone Like You", 4.5, "Some lyrics...");
         Musica musica6 = new Musica("M006", "Set Fire to the Rain", 3.8, "Some lyrics...");
+
         album2.addMusica(musica4);
         album2.addMusica(musica5);
         album2.addMusica(musica6);
+
         artista2.lancaAlbum(album2);
 
         Album album3 = new Album(artista3, "ALB003", "Shape of You", "2022-03-01");
+
         Musica musica7 = new Musica("M007", "Shape of You", 3.2, "Some lyrics...");
         Musica musica8 = new Musica("M008", "Castle on the Hill", 4.2, "Some lyrics...");
         Musica musica9 = new Musica("M009", "Galway Girl", 3.5, "Some lyrics...");
         album3.addMusica(musica7);
         album3.addMusica(musica8);
         album3.addMusica(musica9);
+
         artista3.lancaAlbum(album3);
 
         Podcast podcast1 = new Podcast("P001", "Funny Talks", Podcast.Categoria.COMEDIA, "Podcast de comédia");

@@ -38,4 +38,17 @@ public class Playlist implements Reproduz {
 		return getTitulo() + " - duração: " + getDuracaoTotal();
 	}
 
+	public Audio getMusicaAleatoria() {
+		if (filaDeReproducao.isEmpty()) {
+			return null; // Retorna null se a lista de reprodução estiver vazia
+		}
+
+		int size = filaDeReproducao.size();
+		int randomIndex = new Random().nextInt(size);
+
+		// Transforma o Set em uma lista para poder acessar o elemento aleatório
+		List<Audio> listaReproducao = new ArrayList<>(filaDeReproducao);
+
+		return listaReproducao.get(randomIndex);
+	}
 }

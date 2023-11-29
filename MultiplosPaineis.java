@@ -12,15 +12,15 @@ public class MultiplosPaineis extends JPanel { // Alteração: agora estende JPa
         setLayout(new BorderLayout());
         multiplosPaineis = new JTabbedPane();
 
-        addPanel("Artistas", "Explore seus artistas favoritos", app.getListaArtistas());
-        addPanel("Álbuns", "Navegue pelos álbuns", app.getListaAlbuns());
-        addPanel("Playlist", app.getPlaylist().toString(), app.getPlaylist().getFilaDeReproducao().stream().toList());
-        addPanel("Podcasts", "Descubra novos podcasts", app.getListaPodcasts());
+        addPanel("Artistas", "Explore seus artistas favoritos", app.getListaArtistas(), app.getListaArtistas().stream().count());
+        addPanel("Álbuns", "Navegue pelos álbuns", app.getListaAlbuns(), app.getListaAlbuns().stream().count());
+        addPanel("Playlist", app.getPlaylist().toString(), app.getPlaylist().getFilaDeReproducao().stream().toList(), app.getPlaylist().getFilaDeReproducao().stream().count());
+        addPanel("Podcasts", "Descubra novos podcasts", app.getListaPodcasts(), app.getListaPodcasts().stream().count());
 
         add(multiplosPaineis, BorderLayout.CENTER); // Adicionando o JTabbedPane ao painel principal
     }
 
-    public void addPanel(String panelName, String description, List list) {
+    public void addPanel(String panelName, String description, List list, long estatistica ) {
         JPanel panel = new JPanel(new GridLayout(0, 1));
 
         JLabel descriptionLabel = new JLabel(description, SwingConstants.CENTER);
@@ -34,6 +34,11 @@ public class MultiplosPaineis extends JPanel { // Alteração: agora estende JPa
             infoLabel.setBorder(new EmptyBorder(10, 0, 10, 0));
             panel.add(infoLabel);
         }
+
+        JLabel estatiticaLabel = new JLabel("Estatística: " + String.valueOf(estatistica), SwingConstants.NORTH_EAST);
+        estatiticaLabel.setFont(new Font("Calibri", Font.BOLD, 14));
+        //estatiticaLabel.setBorder(new EmptyBorder(2, 0, 2, 0));
+        panel.add(estatiticaLabel, BorderLayout.LINE_END);
 
         JPanel wrappedPanel = wrapWithReproducaoPanel(panel);
         multiplosPaineis.add(panelName, wrappedPanel);
