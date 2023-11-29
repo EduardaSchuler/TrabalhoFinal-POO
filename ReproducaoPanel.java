@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ReproducaoPanel extends JPanel {
+    private Aplicacao app;
+
     public ReproducaoPanel() {
         setLayout(new BorderLayout());
         setBackground(Color.BLACK);
@@ -15,6 +17,7 @@ public class ReproducaoPanel extends JPanel {
 
     private JPanel createBotoesPanel() {
         JPanel botoesPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JLabel playingNow = new JLabel();
         JButton previousButton = createButton("Anterior");
         JButton playButton = createButton("Play");
         JButton pauseButton = createButton("Pause");

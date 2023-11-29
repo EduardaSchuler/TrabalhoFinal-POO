@@ -35,13 +35,21 @@ public class Artista {
 		return verificacao;
 	}
 
-	public List getAlbuns() {
-		List<String> tituloAlbuns = albuns.stream()
-                .map(Album::getTitulo) // Transforma Albuns em String (titulo)
+	public List getAlbunsTitulos() {
+		 return albuns.stream()
+                .map(Album::getTitulo) // apresenta apenas o titulo do album
                 .collect(Collectors.toList());
-		return tituloAlbuns;
 	}
 
+	public Set getAlbuns(){
+		return albuns;
+	}
+
+	public void lancaAlbum(Album a){
+		albuns.add(a);
+	}
+
+	// nao esta funcionando
 	public void alteraVerificacao(){
 		if(this.verificacao == false) this.verificacao = true;
 		if(this.verificacao == true) this.verificacao = false;
@@ -49,10 +57,8 @@ public class Artista {
 
 	@Override
 	public String toString() {
-		return "CodArtista: " + getCodArtista() +
-				"\nNome: " + getNome() +
-				"\nSobre: " + getSobre() +
-				"\nVerificacao: " + getVerificacao() +
-				"\nAlbuns: " + getAlbuns();
+		return "\nNome: " + getNome() +
+				" - Sobre: " + getSobre() +
+				" - Albuns: " + getAlbunsTitulos();
 	}
 }

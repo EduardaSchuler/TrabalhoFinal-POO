@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class Album implements Comparable<Album>{
@@ -37,8 +38,10 @@ public class Album implements Comparable<Album>{
 		return musicas.size();
 	}
 
-	public Set getMusicas() {
-		return musicas;
+	public List getMusicas() {
+		return musicas.stream()
+				.map(Musica::getTitulo) // apresenta apenas o titulo do album
+				.collect(Collectors.toList());
 	}
 
 	public void addMusica(Musica m){
@@ -67,10 +70,9 @@ public class Album implements Comparable<Album>{
 	@Override
 	public String toString() {
 		return "Artista: " + artista.getNome() +
-				"\nCodAlbum: " + codAlbum +
-				"\nTitulo: " + titulo +
-				"\nData de Lançamento: " + dataLancamento +
-				"\nQuantidade de Músicas: " + getQtdMusicas() +
-				"\nMúsicas: " + musicas;
+				" - Titulo: " + titulo +
+				" - Data de Lançamento: " + dataLancamento +
+				" - Quantidade de Músicas: " + getQtdMusicas() +
+				" - Músicas: " + getMusicas();
 	}
 }

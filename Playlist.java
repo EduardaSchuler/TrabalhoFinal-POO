@@ -13,10 +13,7 @@ public class Playlist implements Reproduz {
 	}
 
 	public double getDuracaoTotal(){
-		for(Audio audio : filaDeReproducao){
-			duracaoTotal += audio.getDuracao();
-		}
-		return duracaoTotal;
+		return filaDeReproducao.stream().mapToDouble(Audio::getDuracao).sum();
 	}
 
 	public Set getFilaDeReproducao() {
@@ -30,9 +27,15 @@ public class Playlist implements Reproduz {
 	public void adicionaAudio(Audio a){
 		filaDeReproducao.add(a);
 	}
+
 	//implementação da interface
 	public void next() {
 		filaDeReproducao.iterator().next();
+	}
+
+	@Override
+	public String toString(){
+		return getTitulo() + " - duração: " + getDuracaoTotal();
 	}
 
 }

@@ -1,10 +1,11 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Podcast implements Comparable<Podcast>{
 
 	public enum Categoria { COMEDIA, DIA_A_DIA, HORROR, HISTORIA, COTIDIANDO };
 
-	private Set<Episodio> episodios;
+	private ArrayList<Episodio> episodios;
 	private String codPodcast;
 	private String descricao;
 	private String titulo;
@@ -15,7 +16,7 @@ public class Podcast implements Comparable<Podcast>{
 		this.titulo = titulo;
 		this.categoria = categoria;
 		this.descricao = descricao;
-		episodios = new HashSet<Episodio>();
+		episodios = new ArrayList<Episodio>();
 	}
 
 	public void lançaEpisiodio(Episodio ep) {
@@ -38,7 +39,13 @@ public class Podcast implements Comparable<Podcast>{
 		return categoria;
 	}
 
-	public Set<Episodio> getEpisodios() {
+	public List<String> getEpisodiosTitulo() {
+		return episodios.stream()
+				.map(Episodio::getTitulo) // apresenta apenas o titulo do episodio
+				.collect(Collectors.toList());
+	}
+
+	public List<Episodio> getEpisodios(){
 		return episodios;
 	}
 
@@ -59,5 +66,14 @@ public class Podcast implements Comparable<Podcast>{
 	@Override
 	public int hashCode(){
 		return codPodcast.hashCode();
+	}
+
+	@Override
+	public String toString(){
+		return "Titulo: " + getTitulo()
+				+ " - categoria: " + getCategoria()
+				+ " - episodios: " + getEpisodiosTitulo()
+				+ " - tempo total do podcast: " + getEpisodios().stream().mapToDouble(Episodio::getDuracao).sum()
+				+ " - tempo medio dos episodios: " + getEpisodios().stream().mapToDouble(Episodio::getDuracao).average();
 	}
 }

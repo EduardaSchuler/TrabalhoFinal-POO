@@ -29,4 +29,12 @@ public class Episodio extends Audio {
 		return dataLancamento;
 	}
 
+	@Override
+	public String toString(){
+		return "Apresentado por: " + getNomeApresentador()
+				+ " - descricao: " + getDescricao()
+				+ " - duracao: " + getDuracao()
+				+ " - lançado em: " + getDataLancamento();
+	}
+
 }

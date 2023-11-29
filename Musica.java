@@ -12,10 +12,9 @@ public class Musica extends Audio{
 
 	@Override
 	public String toString() {
-		return "CodAudio: " + getCodAudio() +
-				"\nTitulo: " + getTitulo() +
-				"\nDuracao: " + getDuracao() +
-				"\nLetra: " + letra;
+		return	"Titulo: " + getTitulo() +
+				" - duracao: " + getDuracao() +
+				" - Letra: " + letra;
 	}
 
 }

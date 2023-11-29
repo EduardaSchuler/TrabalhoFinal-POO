@@ -14,30 +14,26 @@ public class MultiplosPaineis extends JPanel { // Alteração: agora estende JPa
 
         addPanel("Artistas", "Explore seus artistas favoritos", app.getListaArtistas());
         addPanel("Álbuns", "Navegue pelos álbuns", app.getListaAlbuns());
-        addPanel("Playlists", "Acesse suas playlists", app.getPlaylist().getFilaDeReproducao().stream().toList());
+        addPanel("Playlist", app.getPlaylist().toString(), app.getPlaylist().getFilaDeReproducao().stream().toList());
         addPanel("Podcasts", "Descubra novos podcasts", app.getListaPodcasts());
 
         add(multiplosPaineis, BorderLayout.CENTER); // Adicionando o JTabbedPane ao painel principal
     }
 
     public void addPanel(String panelName, String description, List list) {
-        JPanel panel = new JPanel(new BorderLayout());
+        JPanel panel = new JPanel(new GridLayout(0, 1));
 
         JLabel descriptionLabel = new JLabel(description, SwingConstants.CENTER);
-        descriptionLabel.setFont(new Font("Calibri", Font.BOLD, 12));
+        descriptionLabel.setFont(new Font("Calibri", Font.BOLD, 14));
         descriptionLabel.setBorder(new EmptyBorder(10, 0, 10, 0));
         panel.add(descriptionLabel, BorderLayout.NORTH);
 
-        StringBuilder labelText = new StringBuilder("<html>"); // Usando HTML para permitir várias linhas
         for (Object obj : list) {
-            labelText.append(obj.toString()).append("<br>");
+            JLabel infoLabel = new JLabel(obj.toString(), SwingConstants.CENTER);
+            infoLabel.setFont(new Font("Calibri", Font.BOLD, 12));
+            infoLabel.setBorder(new EmptyBorder(10, 0, 10, 0));
+            panel.add(infoLabel);
         }
-        labelText.append("</html>");
-
-        JLabel infoLabel = new JLabel(labelText.toString(), SwingConstants.CENTER);
-        infoLabel.setFont(new Font("Calibri", Font.BOLD, 12));
-        infoLabel.setBorder(new EmptyBorder(10, 0, 10, 0));
-        panel.add(infoLabel, BorderLayout.SOUTH);
 
         JPanel wrappedPanel = wrapWithReproducaoPanel(panel);
         multiplosPaineis.add(panelName, wrappedPanel);
