@@ -3,11 +3,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ReproducaoPanel extends JPanel {
+public class MenuPanel extends JPanel {
     private Aplicacao app;
     private MultiplosPaineis multiplosPaineis;
 
-    public ReproducaoPanel(Aplicacao app, MultiplosPaineis multiplosPaineis) {
+    public MenuPanel(Aplicacao app, MultiplosPaineis multiplosPaineis) {
         this.app = app;
         this.multiplosPaineis = multiplosPaineis;
         setLayout(new BorderLayout());
@@ -48,7 +48,7 @@ public class ReproducaoPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, "Até logo :)");
                 // Fechar o programa
-                JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(ReproducaoPanel.this);
+                JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(MenuPanel.this);
                 frame.dispose(); // Fecha a janela do programa
             }
         });

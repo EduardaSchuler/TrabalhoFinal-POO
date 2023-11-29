@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import java.util.stream.Collectors;
 import javax.swing.border.EmptyBorder;
 
 public class MultiplosPaineis extends JPanel { // Alteração: agora estende JPanel
@@ -51,7 +50,7 @@ public class MultiplosPaineis extends JPanel { // Alteração: agora estende JPa
 
     public JPanel wrapWithReproducaoPanel(JPanel panelToWrap) {
         JPanel wrapperPanel = new JPanel(new BorderLayout());
-        JPanel reproducaoPanel = new ReproducaoPanel(app, this);
+        JPanel reproducaoPanel = new MenuPanel(app, this);
         wrapperPanel.add(panelToWrap, BorderLayout.CENTER);
         wrapperPanel.add(reproducaoPanel, BorderLayout.SOUTH);
         return wrapperPanel;
