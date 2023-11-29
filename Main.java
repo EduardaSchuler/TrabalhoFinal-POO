@@ -8,7 +8,7 @@ public class Main {
         MultiplosPaineis multiplosPaineis = new MultiplosPaineis();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(multiplosPaineis);
-        frame.setSize(600, 400);
+        frame.setSize(1040, 600);
         frame.setVisible(true);
     }
 }

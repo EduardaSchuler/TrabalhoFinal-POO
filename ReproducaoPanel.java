@@ -9,10 +9,8 @@ public class ReproducaoPanel extends JPanel {
         setBackground(Color.BLACK);
 
         JPanel botoesPanel = createBotoesPanel();
-        JProgressBar progressBar = createProgressBar();
 
         add(botoesPanel, BorderLayout.NORTH);
-        add(progressBar, BorderLayout.CENTER);
     }
 
     private JPanel createBotoesPanel() {

@@ -70,10 +70,14 @@ public class Podcast implements Comparable<Podcast>{
 
 	@Override
 	public String toString(){
+		OptionalDouble averageDuration = getEpisodios().stream().mapToDouble(Episodio::getDuracao).average();
+		double average = averageDuration.orElse(0.0);
+
+		double roundedAverage = Math.round(average * 100.0) / 100.0;
 		return "Titulo: " + getTitulo()
 				+ " - categoria: " + getCategoria()
 				+ " - episodios: " + getEpisodiosTitulo()
 				+ " - tempo total do podcast: " + getEpisodios().stream().mapToDouble(Episodio::getDuracao).sum()
-				+ " - tempo medio dos episodios: " + getEpisodios().stream().mapToDouble(Episodio::getDuracao).average();
+				+ " - tempo medio dos episodios: " + roundedAverage;
 	}
 }
