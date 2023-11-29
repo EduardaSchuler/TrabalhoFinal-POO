@@ -56,12 +56,12 @@ public class Main {
         podcast3.lançaEpisiodio(episodio3Podcast3);
 
         Playlist playlist = new Playlist("Mixed Playlist");
-        playlist.getFilaDeReproducao().add(musica1);
-        playlist.getFilaDeReproducao().add(episodio1Podcast1);
-        playlist.getFilaDeReproducao().add(musica2);
-        playlist.getFilaDeReproducao().add(episodio2Podcast2);
-        playlist.getFilaDeReproducao().add(musica3);
-        playlist.getFilaDeReproducao().add(episodio3Podcast3);
+        playlist.adicionaAudio(musica1);
+        playlist.adicionaAudio(episodio1Podcast1);
+        playlist.adicionaAudio(musica2);
+        playlist.adicionaAudio(episodio2Podcast2);
+        playlist.adicionaAudio(musica3);
+        playlist.adicionaAudio(episodio3Podcast3);
 
 
         // cria uma instancia de JFrame que vai ser usada tanto em MultiplosPaineis
