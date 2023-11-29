@@ -19,7 +19,7 @@ public class Podcast implements Comparable<Podcast>{
 	}
 
 	public void lançaEpisiodio(Episodio ep) {
-		episodios.add(e);
+		episodios.add(ep);
 	}
 
 	public String getCodPodcast(){

@@ -29,6 +29,10 @@ public class Album implements Comparable<Album>{
 		return dataLancamento;
 	}
 
+	public String getTitulo(){
+		return titulo;
+	}
+
 	public int getQtdMusicas() {
 		return musicas.size();
 	}

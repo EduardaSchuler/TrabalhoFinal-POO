@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class Artista {
@@ -34,10 +35,11 @@ public class Artista {
 		return verificacao;
 	}
 
-	// na hora de chamar o metodo no form usar o seguinte metodo
-	// getAlbuns().forEach(album -> System.out.println(album))
-	public Set getAlbuns() {
-		return albuns;
+	public List getAlbuns() {
+		List<String> tituloAlbuns = albuns.stream()
+                .map(Album::getTitulo) // Transforma Albuns em String (titulo)
+                .collect(Collectors.toList());
+		return tituloAlbuns;
 	}
 
 	public void alteraVerificacao(){
@@ -47,10 +49,10 @@ public class Artista {
 
 	@Override
 	public String toString() {
-		return "CodArtista: " + codArtista +
-				"\nNome: " + nome +
-				"\nSobre: " + sobre +
-				"\nVerificacao: " + verificacao +
-				"\nAlbuns: " + albuns;
+		return "CodArtista: " + getCodArtista() +
+				"\nNome: " + getNome() +
+				"\nSobre: " + getSobre() +
+				"\nVerificacao: " + getVerificacao() +
+				"\nAlbuns: " + getAlbuns();
 	}
 }

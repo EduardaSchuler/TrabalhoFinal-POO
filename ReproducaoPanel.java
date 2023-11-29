@@ -1,10 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ReproducaoPanel extends JPanel {
-    public ReproducaoPanel(Playlist p) {
+    public ReproducaoPanel() {
         setLayout(new BorderLayout());
         setBackground(Color.BLACK);
 
