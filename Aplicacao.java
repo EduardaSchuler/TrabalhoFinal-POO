@@ -29,6 +29,12 @@ public class Aplicacao extends JFrame {
                 .collect(Collectors.toList());
     }
 
+    public List<Audio> getTodasMusicasDeTodosAlbuns(){
+        List<Audio> listAux = new ArrayList<Audio>(getListaAlbuns().stream().flatMap(album -> album.getMusicas().stream()).toList());
+        listAux.addAll(getListaPodcasts().stream().flatMap(podcast -> podcast.getEpisodios().stream()).toList());
+        return listAux;
+    }
+
     public void populaApp(){
         // instancias para iniciar o pregrama
         listaArtistas = new ArrayList<>();

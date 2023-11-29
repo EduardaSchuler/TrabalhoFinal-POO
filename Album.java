@@ -38,10 +38,14 @@ public class Album implements Comparable<Album>{
 		return musicas.size();
 	}
 
-	public List getMusicas() {
+	public List getMusicasTitulo() {
 		return musicas.stream()
 				.map(Musica::getTitulo) // apresenta apenas o titulo do album
 				.collect(Collectors.toList());
+	}
+
+	public List getMusicas(){
+		return musicas.stream().toList();
 	}
 
 	public void addMusica(Musica m){
@@ -73,6 +77,6 @@ public class Album implements Comparable<Album>{
 				" - Titulo: " + titulo +
 				" - Data de Lançamento: " + dataLancamento +
 				" - Quantidade de Músicas: " + getQtdMusicas() +
-				" - Músicas: " + getMusicas();
+				" - Músicas: " + getMusicasTitulo();
 	}
 }

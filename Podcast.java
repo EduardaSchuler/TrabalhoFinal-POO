@@ -5,7 +5,7 @@ public class Podcast implements Comparable<Podcast>{
 
 	public enum Categoria { COMEDIA, DIA_A_DIA, HORROR, HISTORIA, COTIDIANDO };
 
-	private ArrayList<Episodio> episodios;
+	private Set<Episodio> episodios;
 	private String codPodcast;
 	private String descricao;
 	private String titulo;
@@ -16,7 +16,7 @@ public class Podcast implements Comparable<Podcast>{
 		this.titulo = titulo;
 		this.categoria = categoria;
 		this.descricao = descricao;
-		episodios = new ArrayList<Episodio>();
+		episodios = new HashSet<Episodio>();
 	}
 
 	public void lançaEpisiodio(Episodio ep) {
@@ -46,7 +46,7 @@ public class Podcast implements Comparable<Podcast>{
 	}
 
 	public List<Episodio> getEpisodios(){
-		return episodios;
+		return episodios.stream().toList();
 	}
 
 	@Override

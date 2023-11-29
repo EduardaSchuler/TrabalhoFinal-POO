@@ -24,8 +24,8 @@ public class Playlist implements Reproduz {
 		return titulo;
 	}
 
-	public void adicionaAudio(Audio a){
-		filaDeReproducao.add(a);
+	public boolean adicionaAudio(Audio a){
+		return filaDeReproducao.add(a);
 	}
 
 	//implementação da interface

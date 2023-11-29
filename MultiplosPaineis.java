@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.border.EmptyBorder;
 
 public class MultiplosPaineis extends JPanel { // Alteração: agora estende JPanel
@@ -16,6 +19,8 @@ public class MultiplosPaineis extends JPanel { // Alteração: agora estende JPa
         addPanel("Álbuns", "Navegue pelos álbuns", app.getListaAlbuns(), app.getListaAlbuns().stream().count());
         addPanel("Playlist", app.getPlaylist().toString(), app.getPlaylist().getFilaDeReproducao().stream().toList(), app.getPlaylist().getFilaDeReproducao().stream().count());
         addPanel("Podcasts", "Descubra novos podcasts", app.getListaPodcasts(), app.getListaPodcasts().stream().count());
+
+        addPanelAddToPlaylist("Adicionar à playlist", app.getTodasMusicasDeTodosAlbuns());
 
         add(multiplosPaineis, BorderLayout.CENTER); // Adicionando o JTabbedPane ao painel principal
     }
@@ -50,6 +55,29 @@ public class MultiplosPaineis extends JPanel { // Alteração: agora estende JPa
         wrapperPanel.add(panelToWrap, BorderLayout.CENTER);
         wrapperPanel.add(reproducaoPanel, BorderLayout.SOUTH);
         return wrapperPanel;
+    }
+
+    // painel para adicionar novos audios à playlist
+    public void addPanelAddToPlaylist(String panelName, List<Audio> list) {
+        JPanel panel = new JPanel(new GridLayout(0, 1));
+        JButton audioButton;
+        for (Audio aud : list) {
+            audioButton = new JButton(aud.getTitulo());
+            audioButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(app.getPlaylist().adicionaAudio(aud) == true){
+                        JOptionPane.showMessageDialog(null, "adicionado à playlist com sucesso!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "já está na playlist");
+                    }
+                }
+            });
+            panel.add(audioButton);
+        }
+
+        JPanel wrappedPanel = wrapWithReproducaoPanel(panel);
+        multiplosPaineis.add(panelName, wrappedPanel);
     }
 
 }
