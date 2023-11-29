@@ -1,7 +1,7 @@
 import java.util.*;
 
 
-public class Album {
+public class Album implements Comparable<Album>{
 
 	private Artista artista;
 	private String codAlbum;
@@ -37,4 +37,36 @@ public class Album {
 		return musicas;
 	}
 
+	public void addMusica(Musica m){
+		musicas.add(m);
+	}
+
+	@Override
+	public int compareTo(Album a) {
+		return String.CASE_INSENSITIVE_ORDER.compare(getCodAlbum(), a.getCodAlbum());
+	}
+
+	@Override
+	public boolean equals(Object obj){
+		if(obj == null) return false;
+		if(this == obj) return false;
+		if(getClass() != obj.getClass()) return false;
+		Album outroAlb = (Album) obj;
+		return this.codAlbum == outroAlb.getCodAlbum();
+	}
+
+	@Override
+	public int hashCode(){
+		return codAlbum.hashCode();
+	}
+
+	@Override
+	public String toString() {
+		return "Artista: " + artista.getNome() +
+				"\nCodAlbum: " + codAlbum +
+				"\nTitulo: " + titulo +
+				"\nData de Lançamento: " + dataLancamento +
+				"\nQuantidade de Músicas: " + getQtdMusicas() +
+				"\nMúsicas: " + musicas;
+	}
 }

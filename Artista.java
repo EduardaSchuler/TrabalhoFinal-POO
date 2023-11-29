@@ -40,4 +40,17 @@ public class Artista {
 		return albuns;
 	}
 
+	public void alteraVerificacao(){
+		if(this.verificacao == false) this.verificacao = true;
+		if(this.verificacao == true) this.verificacao = false;
+	}
+
+	@Override
+	public String toString() {
+		return "CodArtista: " + codArtista +
+				"\nNome: " + nome +
+				"\nSobre: " + sobre +
+				"\nVerificacao: " + verificacao +
+				"\nAlbuns: " + albuns;
+	}
 }

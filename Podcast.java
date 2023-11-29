@@ -18,7 +18,8 @@ public class Podcast implements Comparable<Podcast>{
 		episodios = new HashSet<Episodio>();
 	}
 
-	public void lançaEpisiodio() {
+	public void lançaEpisiodio(Episodio ep) {
+		episodios.add(e);
 	}
 
 	public String getCodPodcast(){

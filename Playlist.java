@@ -19,13 +19,20 @@ public class Playlist implements Reproduz {
 		return duracaoTotal;
 	}
 
+	public Set getFilaDeReproducao() {
+		return filaDeReproducao;
+	}
+
 	public String getTitulo(){
 		return titulo;
 	}
 
+	public void adicionaAudio(Audio a){
+		filaDeReproducao.add(a);
+	}
 	//implementação da interface
 	public void next() {
-		filaDeReproducao.iterator();
+		filaDeReproducao.iterator().next();
 	}
 
 }
