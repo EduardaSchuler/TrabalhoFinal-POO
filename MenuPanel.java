@@ -53,6 +53,18 @@ public class MenuPanel extends JPanel {
             }
         });
 
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String userInput = JOptionPane.showInputDialog(null, "Digite o título do áudio:");
+                if (userInput != null && !userInput.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, app.getTodasMusicasDeTodosAlbuns().stream().filter(audio -> userInput.equals(audio.getTitulo())).toList());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Nenhum titulo inserido.");
+                }
+            }
+        });
+
         botoesPanel.add(playButton);
         botoesPanel.add(pauseButton);
         botoesPanel.add(searchButton);
