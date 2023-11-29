@@ -23,12 +23,6 @@ public class MultiplosPaineis extends JPanel { // Alteração: agora estende JPa
         addPanelAddToPlaylist("Adicionar à playlist", app.getTodasMusicasDeTodosAlbuns());
 
         add(multiplosPaineis, BorderLayout.CENTER); // Adicionando o JTabbedPane ao painel principal
-
-        multiplosPaineis.addChangeListener(e -> {
-            int selectedIndex = multiplosPaineis.getSelectedIndex();
-            String activePanel = multiplosPaineis.getTitleAt(selectedIndex);
-            // Use activePanel conforme necessário
-        });
     }
 
     public void addPanel(String panelName, String description, List list, long estatistica ) {
@@ -46,7 +40,7 @@ public class MultiplosPaineis extends JPanel { // Alteração: agora estende JPa
             panel.add(infoLabel);
         }
 
-        JLabel estatiticaLabel = new JLabel("Estatística: " + String.valueOf(estatistica), SwingConstants.NORTH_EAST);
+        JLabel estatiticaLabel = new JLabel("Estatística: " + String.valueOf(estatistica) + " registros", SwingConstants.NORTH_EAST);
         estatiticaLabel.setFont(new Font("Calibri", Font.BOLD, 14));
         //estatiticaLabel.setBorder(new EmptyBorder(2, 0, 2, 0));
         panel.add(estatiticaLabel, BorderLayout.LINE_END);
@@ -61,11 +55,6 @@ public class MultiplosPaineis extends JPanel { // Alteração: agora estende JPa
         wrapperPanel.add(panelToWrap, BorderLayout.CENTER);
         wrapperPanel.add(reproducaoPanel, BorderLayout.SOUTH);
         return wrapperPanel;
-    }
-    public void limparPaineis() {
-        // Lógica para limpar os painéis
-        // Por exemplo, remove todos os componentes do JTabbedPane
-        multiplosPaineis.removeAll();
     }
 
     // painel para adicionar novos audios à playlist
@@ -89,11 +78,6 @@ public class MultiplosPaineis extends JPanel { // Alteração: agora estende JPa
 
         JPanel wrappedPanel = wrapWithReproducaoPanel(panel);
         multiplosPaineis.add(panelName, wrappedPanel);
-    }
-
-    public String getPainelAtivo() {
-        int selectedIndex = multiplosPaineis.getSelectedIndex();
-        return multiplosPaineis.getTitleAt(selectedIndex);
     }
 
 }

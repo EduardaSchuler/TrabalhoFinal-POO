@@ -22,9 +22,8 @@ public class ReproducaoPanel extends JPanel {
         JPanel botoesPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JButton playButton = createButton("Play");
         JButton pauseButton = createButton("Pause");
-        JButton addButton = createButton("Adicionar");
         JButton searchButton = createButton("Pesquisar");
-        JButton resetButton = createButton("Resetar");
+        JButton exitButton = createButton("Sair");
 
         playButton.addActionListener(new ActionListener() {
             @Override
@@ -44,19 +43,20 @@ public class ReproducaoPanel extends JPanel {
                 JOptionPane.showMessageDialog(null, "Música pausada");
             }
         });
-        resetButton.addActionListener(new ActionListener() {
+        exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                multiplosPaineis.limparPaineis();
-                JOptionPane.showMessageDialog(null, "Limpeza concluída com sucesso");
+                JOptionPane.showMessageDialog(null, "Até logo :)");
+                // Fechar o programa
+                JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(ReproducaoPanel.this);
+                frame.dispose(); // Fecha a janela do programa
             }
         });
 
         botoesPanel.add(playButton);
         botoesPanel.add(pauseButton);
-        botoesPanel.add(addButton);
         botoesPanel.add(searchButton);
-        botoesPanel.add(resetButton);
+        botoesPanel.add(exitButton);
         return botoesPanel;
     }
 
