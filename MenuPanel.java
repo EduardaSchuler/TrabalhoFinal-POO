@@ -22,7 +22,7 @@ public class ReproducaoPanel extends JPanel {
         JPanel botoesPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JButton playButton = createButton("Play");
         JButton pauseButton = createButton("Pause");
-        JButton searchButton = createButton("Pesquisar");
+        JButton searchButton = createButton("Pesquisar Audio");
         JButton exitButton = createButton("Sair");
 
         playButton.addActionListener(new ActionListener() {
