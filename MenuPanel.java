@@ -60,7 +60,7 @@ public class MenuPanel extends JPanel {
                 if (userInput != null && !userInput.isEmpty()) {
                     JOptionPane.showMessageDialog(null, app.getTodasMusicasDeTodosAlbuns().stream().filter(audio -> userInput.equals(audio.getTitulo())).toList());
                 } else {
-                    JOptionPane.showMessageDialog(null, "Nenhum titulo inserido.");
+                    JOptionPane.showMessageDialog(null, "Nenhum titulo inserido ou encontrado");
                 }
             }
         });
