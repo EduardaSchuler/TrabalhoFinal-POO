@@ -3,3 +3,4 @@
 
 ### Projeto Desenvolvido: Plataforma de Musica
 #### desenvolvedoras: Larissa Oliveira da Silva e Maria Eduarda Schüler
+Avaliação: 8,3
